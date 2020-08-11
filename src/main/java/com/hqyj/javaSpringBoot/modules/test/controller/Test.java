@@ -1,6 +1,6 @@
-package com.hqyj.javaSpringBoot.test;
+package com.hqyj.javaSpringBoot.modules.test.controller;
 
-import com.hqyj.javaSpringBoot.applicationTest.TestApp;
+import com.hqyj.javaSpringBoot.modules.test.vo.TestApplication;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +13,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 @RequestMapping("/test")
 public class Test {
+
     private final static Logger LOGGER = LoggerFactory.getLogger(Test.class);
+
     @Value("${server.port}")
     private int port;
     @Value("${com.name}")
@@ -26,7 +28,7 @@ public class Test {
     private String random;
 
     @Autowired
-    private TestApp testApp;
+    private TestApplication testApplication;
 
     /*
        127.0.0.1:8085/test/logTest------------get
@@ -39,7 +41,7 @@ public class Test {
         LOGGER.info("this is info test");
         LOGGER.warn("this is warn test");
         LOGGER.error("this is error test");
-        return "this is log test!";
+        return "-------------this is log test---------------!";
     }
 
     /*
@@ -54,11 +56,11 @@ public class Test {
                 .append(age).append("-----")
                 .append(desc).append("-----")
                 .append(random).append("-----").append("<br>");
-        sb.append(testApp.getPort()).append("-----")
-                .append(testApp.getName()).append("-----")
-                .append(testApp.getAge()).append("-----")
-                .append(testApp.getDesc()).append("-----")
-                .append(testApp.getRandom()).append("-----");
+        sb.append(testApplication.getPort()).append("-----")
+                .append(testApplication.getName()).append("-----")
+                .append(testApplication.getAge()).append("-----")
+                .append(testApplication.getDesc()).append("-----")
+                .append(testApplication.getRandom()).append("-----");
         return sb.toString();
     }
 

@@ -1,4 +1,4 @@
-package com.hqyj.javaSpringBoot.applicationTest;
+package com.hqyj.javaSpringBoot.modules.test.vo;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.context.properties.ConfigurationProperties;
@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 @Component
 @PropertySource("classpath:config/applicationTest.properties")
 @ConfigurationProperties(prefix = "com.qq")
-public class TestApp {
+public class TestApplication {
     private int port;
     private String name;
     private int age;
