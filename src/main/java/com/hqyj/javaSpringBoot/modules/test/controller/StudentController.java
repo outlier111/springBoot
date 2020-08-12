@@ -16,7 +16,7 @@ public class StudentController {
     private StudentService studentService;
 
     /*
-    127.0.0.1/api/student-------post
+    127.0.0.1/api/student--------post
     {"studentName":"jige","studentCard":{"cardId":"1"}}
      */
     @PostMapping(value = "/student", consumes = "application/json")
