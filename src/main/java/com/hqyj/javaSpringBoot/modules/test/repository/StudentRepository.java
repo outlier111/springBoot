@@ -14,7 +14,7 @@ public interface StudentRepository extends JpaRepository<Student, Integer> {
 //    通过姓名查询信息
 //    List<Student> findByStudentName(String studentName);
 
-//    通过模糊姓名查询信息
+//    通过模糊姓名查询信息-
 
 //    List<Student> findByStudentNameLike(String studentName);
 
