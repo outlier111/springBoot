@@ -18,6 +18,7 @@ public class CityController {
 
     /*
     127.0.0.1/api/cities/522------------get
+    查询ID为522的城市
      */
     @GetMapping("/cities/{countryId}")
     public List<City> getCitiesByCountryId(@PathVariable int countryId){
@@ -28,6 +29,7 @@ public class CityController {
     127.0.0.1/api/cities/522------------post
     {"currentPage":"1","pageSize":"5"}
      */
+//    value：     指定请求的实际地址        consumes： 指定处理请求的提交内容类型（Content-Type）
     @PostMapping(value = "/cities/{countryId}",consumes = "application/json")
     public PageInfo<City> getCitiesBySearchVo(
             @PathVariable int countryId,@RequestBody SearchVo searchVo) {

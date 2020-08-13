@@ -3,11 +3,7 @@ package com.hqyj.javaSpringBoot.modules.test.entity;
 import javax.persistence.*;
 import java.util.List;
 
-/**
- * @Description School
- * @Author HymanHu
- * @Date 2020/7/30 13:51
- */
+
 @Entity
 @Table(name = "h_school")
 public class School {

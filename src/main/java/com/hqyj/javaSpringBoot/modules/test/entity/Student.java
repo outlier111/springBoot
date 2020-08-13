@@ -6,11 +6,7 @@ import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.List;
 
-/**
- * @Description Student
- * @Author HymanHu
- * @Date 2020/7/30 13:41
- */
+
 @Entity
 @Table(name = "h_student")
 public class Student {

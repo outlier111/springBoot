@@ -4,11 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 
-/**
- * @Description StudentCard
- * @Author HymanHu
- * @Date 2020/7/30 14:25
- */
+
 @Entity
 @Table(name = "h_card")
 public class Card {

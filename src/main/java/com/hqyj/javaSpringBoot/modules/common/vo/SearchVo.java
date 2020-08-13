@@ -1,18 +1,19 @@
 package com.hqyj.javaSpringBoot.modules.common.vo;
-/**
- * @Description SearchVo
- * @Author HymanHu
- * @Date 2020/8/11 15:01
- */
+
 public class SearchVo {
 
 	public final static int DEFAULT_CURRENT_PAGE = 1;
 	public final static int DEFAULT_PAGE_SIZE = 5;
-	
+
+//	首页
 	private int currentPage;
+//	总页数
 	private int pageSize;
+//
 	private String keyWord;
+//	排序类型
 	private String orderBy;
+//	排序方式
 	private String sort;
 
 	public void initSearchVo() {

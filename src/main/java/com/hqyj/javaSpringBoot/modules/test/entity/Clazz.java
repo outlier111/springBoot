@@ -5,11 +5,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import javax.persistence.*;
 import java.util.List;
 
-/**
- * @Description Clazz
- * @Author HymanHu
- * @Date 2020/7/30 13:47
- */
+
 @Entity
 @Table(name = "h_clazz")
 public class Clazz {
