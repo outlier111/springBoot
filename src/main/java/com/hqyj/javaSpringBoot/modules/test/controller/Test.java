@@ -43,7 +43,7 @@ public class Test {
     private CountryService countryService;
 
     /*
-       127.0.0.1/test/index------------get
+       127.0.0.1/test/index-------------get
     */
     @GetMapping("/index")
     public String testIndexPage(ModelMap modelMap){
