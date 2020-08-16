@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html  xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+       lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>*** Manage System</title>
+
+<!--    引入 js-->
+    <script th:src="${'/js/jquery.min.js'}" type="text/javascript"></script>
+</head>
+<body>
+<!--This is rap-->
+</body>
+        <!--  引入 header.html-->
+        <div th:replace="fragments/header"></div>
+
+        <!--  引入 sidebar.html-->
+        <div th:replace="fragments/sidebar"></div>
+
+        <div th:if="${template}">
+            <div th:replace="${template}"></div>
+        </div>
+
+        <!--  引入 footer.html-->
+        <div th:replace="fragments/footer::footer"></div>
+
+</html>
