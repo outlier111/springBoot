@@ -2,6 +2,7 @@ package com.hqyj.javaSpringBoot.modules.test.service.impl;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import com.hqyj.javaSpringBoot.aspect.ServiceAnnotation;
 import com.hqyj.javaSpringBoot.modules.common.vo.Result;
 import com.hqyj.javaSpringBoot.modules.common.vo.SearchVo;
 import com.hqyj.javaSpringBoot.modules.test.dao.CityDao;
@@ -15,9 +16,12 @@ import java.util.*;
 
 @Service
 public class CityServiceImpl implements CityService {
+
     @Autowired
     private CityDao cityDao;
+
     @Override
+    @ServiceAnnotation(value = "bbb")
     public List<City> getCitiesByCountryId(int countryId) {
 //        return cityDao.getCitiesByCountryId(countryId);
         return Optional.ofNullable(cityDao.getCitiesByCountryId(countryId))
