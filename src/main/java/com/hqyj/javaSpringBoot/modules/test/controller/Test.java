@@ -52,6 +52,13 @@ public class Test {
     private CountryService countryService;
 
     /*
+    127.0.0.1/test/indexSimple----------get
+     */
+    @GetMapping("/indexSimple")
+    public String indexSimpleTestPage(){
+        return "indexSimple";
+    }
+    /*
     127.0.0.1/test/file----------get
      */
     @GetMapping("/file")
