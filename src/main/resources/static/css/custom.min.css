@@ -11,3 +11,8 @@
 #slash{
 	display: none;
 }
+
+/*========================*/
+.pagination{
+  float: right;
+}

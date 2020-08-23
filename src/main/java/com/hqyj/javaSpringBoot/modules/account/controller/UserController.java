@@ -41,4 +41,29 @@ public class UserController {
     public PageInfo<User> getUserBySearchVo(@RequestBody SearchVo searchVo) {
         return userService.getUserBySearchVo(searchVo);
     }
+
+    /*
+        127.0.0.1/api/user----------put
+        {"userName":"jige0","userImg":"/aaa.jpg","userId":"2"}
+     */
+    @PutMapping(value = "/user", consumes = MediaType.APPLICATION_JSON_VALUE)
+    public Result<User> updateUser(@RequestBody User user) {
+        return userService.updateUser(user);
+    }
+
+    /*
+    127.0.0.1/api/user/2-------------delete
+     */
+    @DeleteMapping("/user/{userId}")
+    public Result<Object> deleteUser(@PathVariable int userId) {
+        return userService.deleteUser(userId);
+    }
+
+    /*
+    127.0.0.1/api/user/8------------get
+     */
+    @GetMapping("/user/{userId}")
+    public User getUserByUserId(@PathVariable int userId) {
+        return userService.getUserByUserId(userId);
+    }
 }
