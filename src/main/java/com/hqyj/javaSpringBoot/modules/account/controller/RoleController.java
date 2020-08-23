@@ -53,6 +53,9 @@ public class RoleController {
         return roleService.updateRole(role);
     }
 
+    /*
+    127.0.0.1/api/role/{roleId}------------get
+     */
     @GetMapping("/role/{roleId}")
     public Role getRoleByRoleId(@PathVariable int roleId){
         return roleService.getRoleByRoleId(roleId);
