@@ -62,7 +62,7 @@ public class RoleController {
     }
 
     /*
-    127.0.0.1/api/role/{roleId}------------delete
+    127.0.0.1/api/role/{roleId}-------------delete
      */
     @DeleteMapping("/role/{roleId}")
     public Result<Role> deleteRole(@PathVariable int roleId) {
