@@ -61,6 +61,9 @@ public class RoleController {
         return roleService.getRoleByRoleId(roleId);
     }
 
+    /*
+    127.0.0.1/api/role/{roleId}------------delete
+     */
     @DeleteMapping("/role/{roleId}")
     public Result<Role> deleteRole(@PathVariable int roleId) {
         return roleService.deleteRole(roleId);
