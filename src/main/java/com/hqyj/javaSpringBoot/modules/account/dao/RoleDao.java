@@ -1,7 +1,6 @@
 package com.hqyj.javaSpringBoot.modules.account.dao;
 
 import com.hqyj.javaSpringBoot.modules.account.entity.Role;
-import com.hqyj.javaSpringBoot.modules.common.vo.Result;
 import com.hqyj.javaSpringBoot.modules.common.vo.SearchVo;
 import org.apache.ibatis.annotations.*;
 import org.springframework.stereotype.Repository;
