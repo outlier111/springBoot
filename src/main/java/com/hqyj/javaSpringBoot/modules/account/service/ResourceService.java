@@ -20,4 +20,6 @@ public interface ResourceService {
     Resource getResourceByResourceId(int resourceId);
 
     Result<Resource> deleteResource(int resourceId);
+
+    List<Resource> getResourceByRoleId(int roleId);
 }

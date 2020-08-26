@@ -2,6 +2,7 @@ package com.hqyj.javaSpringBoot.modules.account.service.impl;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import com.hqyj.javaSpringBoot.config.ResourceConfigBean;
 import com.hqyj.javaSpringBoot.modules.account.dao.UserDao;
 import com.hqyj.javaSpringBoot.modules.account.dao.UserRoleDao;
 import com.hqyj.javaSpringBoot.modules.account.entity.Role;
@@ -10,10 +11,17 @@ import com.hqyj.javaSpringBoot.modules.account.service.UserService;
 import com.hqyj.javaSpringBoot.modules.common.vo.Result;
 import com.hqyj.javaSpringBoot.modules.common.vo.SearchVo;
 import com.hqyj.javaSpringBoot.utils.MD5Util;
+import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.authc.UsernamePasswordToken;
+import org.apache.shiro.session.Session;
+import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.File;
+import java.io.IOException;
 import java.time.LocalDateTime;
 import java.util.Collections;
 import java.util.List;
@@ -25,6 +33,8 @@ public class UserServiceImpl implements UserService {
     private UserDao userDao;
     @Autowired
     private UserRoleDao userRoleDao;
+    @Autowired
+    private ResourceConfigBean resourceConfigBean;
 
     @Override
     @Transactional
@@ -51,14 +61,27 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public Result<User> login(User user) {
-        User userTemp = userDao.getUserByUserName(user.getUserName());
-        if (userTemp != null && userTemp.getPassword()
-                .equals(MD5Util.getMD5(user.getPassword()))){
-            return new Result<User>(Result.ResultStatus.SUCCESS.status,
-                    "登陆成功",userTemp);
+        Subject subject = SecurityUtils.getSubject();
+
+        UsernamePasswordToken usernamePasswordToken =
+                new UsernamePasswordToken(user.getUserName(),
+                        MD5Util.getMD5(user.getPassword()));
+        usernamePasswordToken.setRememberMe(user.getRememberMe());
+
+        try {
+            subject.login(usernamePasswordToken);
+            subject.checkRoles();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return new Result<User>(Result.ResultStatus.FAILD.status,
+                    "用户名或密码错误.");
         }
-        return new Result<User>(Result.ResultStatus.FAILD.status,
-                "用户名或密码错误");
+
+//        Session session = subject.getSession();
+//        session.setAttribute("user", (User)subject.getPrincipal());
+
+        return new Result<User>(Result.ResultStatus.SUCCESS.status,
+                "登录成功.", user);
     }
 
     @Override
@@ -105,4 +128,43 @@ public class UserServiceImpl implements UserService {
     public User getUserByUserId(int userId) {
         return userDao.getUserByUserId(userId);
     }
+
+    @Override
+    public Result<String> uploadUserImg(MultipartFile file) {
+        if (file.isEmpty()) {
+            return new Result<String>(
+                    Result.ResultStatus.FAILD.status, "Please select img.");
+        }
+
+        String relativePath = "";
+        String destFilePath = "";
+        try {
+            String osName = System.getProperty("os.name");
+            if (osName.toLowerCase().startsWith("win")) {
+                destFilePath = resourceConfigBean.getLocationPathForWindows() +
+                        file.getOriginalFilename();
+            } else {
+                destFilePath = resourceConfigBean.getLocationPathForLinux()
+                        + file.getOriginalFilename();
+            }
+            relativePath = resourceConfigBean.getRelativePath() +
+                    file.getOriginalFilename();
+            File destFile = new File(destFilePath);
+            file.transferTo(destFile);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+            return new Result<String>(
+                    Result.ResultStatus.FAILD.status, "Upload failed.");
+        }
+
+        return new Result<String>(
+                Result.ResultStatus.SUCCESS.status, "Upload success.", relativePath);    }
+
+    @Override
+    public User getUserByUserName(String userName) {
+        return userDao.getUserByUserName(userName);
+    }
+
+
 }

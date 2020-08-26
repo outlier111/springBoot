@@ -45,8 +45,15 @@ public class ResourceServiceImpl implements ResourceService {
             return new Result<Resource>(Result.ResultStatus.FAILD.status,"该角色已存在",resource);
         }
 
-        resource.setResourceName(resource.getResourceName());
         resourceDao.insertResource(resource);
+
+        List<Role> roles = resource.getRoles();
+        if (roles != null && !roles.isEmpty()){
+            roleResourceDao.deleteRoleResourceByResourceId(resource.getResourceId());
+            roles.stream().forEach(item->{
+                roleResourceDao.insertRoleResource(item.getRoleId(), resource.getResourceId());
+            });
+        }
 
         return new Result<Resource>(Result.ResultStatus.SUCCESS.status,"添加成功",resource);
     }
@@ -85,5 +92,10 @@ public class ResourceServiceImpl implements ResourceService {
         resourceDao.deleteResource(resourceId);
         return new Result<Resource>(
                 Result.ResultStatus.SUCCESS.status,"删除成功");
+    }
+
+    @Override
+    public List<Resource> getResourceByRoleId(int roleId) {
+        return resourceDao.getResourceByRoleId(roleId);
     }
 }

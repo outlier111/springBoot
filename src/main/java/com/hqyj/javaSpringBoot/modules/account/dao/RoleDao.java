@@ -15,6 +15,10 @@ public interface RoleDao {
             "on r.role_id = ur.role_id where ur.user_id = #{userId}")
     List<Role> getRoleByUserId(int userId);
 
+    @Select("select * from role r left join role_resource rr " +
+            "on r.role_id = rr.role_id where rr.resource_id = #{resourceId}")
+    List<Role> getRoleByResourceId(int resourceId);
+
     @Select("select * from role")
     List<Role> getRoles();
 

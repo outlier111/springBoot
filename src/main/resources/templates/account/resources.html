@@ -195,8 +195,10 @@
     }
 
     function intAddModal() {
+        $("#resourceUriForAddPage").val("");
         $("#resourceNameForAddPage").val("");
-        initResources("resourcesForAddPage");
+        $("#permissionForAddPage").val("");
+        initRoles("rolesForAddPage","roleElementForAdd");
     }
     //添加角色请求
     function addResource() {
@@ -204,7 +206,15 @@
         resource.resourceUri = $("#resourceUriForAddPage").val();
         resource.resourceName = $("#resourceNameForAddPage").val();
         resource.permission = $("#permissionForAddPage").val();
-
+        var roles = new Array();
+        $.each($("input[name='roleElementForAdd']"), function(){
+            if(this.checked){
+                var role = {};
+                role.roleId = $(this).val();
+                roles.push(role);
+            }
+        });
+        resource.roles = roles;
         $.ajax({
             url : "/api/resource",
             type : "post",

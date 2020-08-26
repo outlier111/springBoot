@@ -42,6 +42,12 @@ public interface ResourceDao {
     void insertResource(Resource resource);
 
     @Select("select * from resource where resource_id = #{resourceId}")
+    @Results(id = "ResourceResult",value = {
+            @Result(column = "resource_id", property = "resourceId"),
+            @Result(column = "resource_id", property = "roles",
+                    javaType = List.class,
+                    many = @Many(select =
+                            "com.hqyj.javaSpringBoot.modules.account.dao.RoleDao.getRoleByResourceId"))})
     Resource getResourceByResourceId(int resourceId);
 
     @Update("update resource set resource_uri = #{resourceUri}, resource_name = #{resourceName}," +
@@ -49,6 +55,7 @@ public interface ResourceDao {
     void updateResource(Resource resource);
 
     @Select("select * from resource where resource_name = #{resourceName}")
+    @ResultMap(value = "ResourceResult")
     Resource getResourceByResourceName(String resourceName);
 
     @Delete("delete from resource where resource_id = #{resourceId}")
