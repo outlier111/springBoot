@@ -82,11 +82,11 @@
             <artifactId>spring-boot-starter-thymeleaf</artifactId>
         </dependency>
 
-        <!--  spring监控端点-->
+        <!--&lt;!&ndash;  spring监控端点&ndash;&gt;
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
-        </dependency>
+        </dependency>-->
 
         <!-- shiro -->
         <dependency>
