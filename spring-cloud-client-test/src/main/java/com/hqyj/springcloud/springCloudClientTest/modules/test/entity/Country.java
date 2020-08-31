@@ -8,198 +8,198 @@ import org.springframework.format.annotation.DateTimeFormat;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 public class Country {
-	private int countryId;
-	private String countryName;
-	private String localCountryName;
-	private String countryCode;
-	private String countryCode2;
-	private String continent;
-	private String region;
-	private float surfaceArea;
-	private int indepYear;
-	private int population;
-	private float lifeExpectancy;
-	private float gnp;
-	private String governmentForm;
-	private String headOfState;
-	private int capital;
-	private String timeZone;
-	private int languageId;
-	private int currencyId;
-	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
-	@DateTimeFormat(pattern = "yyyy-MM-dd")
-	private Date dateModified;
-	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
-	@DateTimeFormat(pattern = "yyyy-MM-dd")
-	private Date dateCreated;
-	
-	private List<City> cities;
+    private int countryId;
+    private String countryName;
+    private String localCountryName;
+    private String countryCode;
+    private String countryCode2;
+    private String continent;
+    private String region;
+    private float surfaceArea;
+    private int indepYear;
+    private int population;
+    private float lifeExpectancy;
+    private float gnp;
+    private String governmentForm;
+    private String headOfState;
+    private int capital;
+    private String timeZone;
+    private int languageId;
+    private int currencyId;
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private Date dateModified;
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private Date dateCreated;
 
-	public int getCountryId() {
-		return countryId;
-	}
+    private List<City> cities;
 
-	public void setCountryId(int countryId) {
-		this.countryId = countryId;
-	}
+    public int getCountryId() {
+        return countryId;
+    }
 
-	public String getCountryName() {
-		return countryName;
-	}
+    public void setCountryId(int countryId) {
+        this.countryId = countryId;
+    }
 
-	public void setCountryName(String countryName) {
-		this.countryName = countryName;
-	}
+    public String getCountryName() {
+        return countryName;
+    }
 
-	public String getLocalCountryName() {
-		return localCountryName;
-	}
+    public void setCountryName(String countryName) {
+        this.countryName = countryName;
+    }
 
-	public void setLocalCountryName(String localCountryName) {
-		this.localCountryName = localCountryName;
-	}
+    public String getLocalCountryName() {
+        return localCountryName;
+    }
 
-	public String getCountryCode() {
-		return countryCode;
-	}
+    public void setLocalCountryName(String localCountryName) {
+        this.localCountryName = localCountryName;
+    }
 
-	public void setCountryCode(String countryCode) {
-		this.countryCode = countryCode;
-	}
+    public String getCountryCode() {
+        return countryCode;
+    }
 
-	public String getCountryCode2() {
-		return countryCode2;
-	}
+    public void setCountryCode(String countryCode) {
+        this.countryCode = countryCode;
+    }
 
-	public void setCountryCode2(String countryCode2) {
-		this.countryCode2 = countryCode2;
-	}
+    public String getCountryCode2() {
+        return countryCode2;
+    }
 
-	public String getContinent() {
-		return continent;
-	}
+    public void setCountryCode2(String countryCode2) {
+        this.countryCode2 = countryCode2;
+    }
 
-	public void setContinent(String continent) {
-		this.continent = continent;
-	}
+    public String getContinent() {
+        return continent;
+    }
 
-	public String getRegion() {
-		return region;
-	}
+    public void setContinent(String continent) {
+        this.continent = continent;
+    }
 
-	public void setRegion(String region) {
-		this.region = region;
-	}
+    public String getRegion() {
+        return region;
+    }
 
-	public float getSurfaceArea() {
-		return surfaceArea;
-	}
+    public void setRegion(String region) {
+        this.region = region;
+    }
 
-	public void setSurfaceArea(float surfaceArea) {
-		this.surfaceArea = surfaceArea;
-	}
+    public float getSurfaceArea() {
+        return surfaceArea;
+    }
 
-	public int getIndepYear() {
-		return indepYear;
-	}
+    public void setSurfaceArea(float surfaceArea) {
+        this.surfaceArea = surfaceArea;
+    }
 
-	public void setIndepYear(int indepYear) {
-		this.indepYear = indepYear;
-	}
+    public int getIndepYear() {
+        return indepYear;
+    }
 
-	public int getPopulation() {
-		return population;
-	}
+    public void setIndepYear(int indepYear) {
+        this.indepYear = indepYear;
+    }
 
-	public void setPopulation(int population) {
-		this.population = population;
-	}
+    public int getPopulation() {
+        return population;
+    }
 
-	public float getLifeExpectancy() {
-		return lifeExpectancy;
-	}
+    public void setPopulation(int population) {
+        this.population = population;
+    }
 
-	public void setLifeExpectancy(float lifeExpectancy) {
-		this.lifeExpectancy = lifeExpectancy;
-	}
+    public float getLifeExpectancy() {
+        return lifeExpectancy;
+    }
 
-	public float getGnp() {
-		return gnp;
-	}
+    public void setLifeExpectancy(float lifeExpectancy) {
+        this.lifeExpectancy = lifeExpectancy;
+    }
 
-	public void setGnp(float gnp) {
-		this.gnp = gnp;
-	}
+    public float getGnp() {
+        return gnp;
+    }
 
-	public String getGovernmentForm() {
-		return governmentForm;
-	}
+    public void setGnp(float gnp) {
+        this.gnp = gnp;
+    }
 
-	public void setGovernmentForm(String governmentForm) {
-		this.governmentForm = governmentForm;
-	}
+    public String getGovernmentForm() {
+        return governmentForm;
+    }
 
-	public String getHeadOfState() {
-		return headOfState;
-	}
+    public void setGovernmentForm(String governmentForm) {
+        this.governmentForm = governmentForm;
+    }
 
-	public void setHeadOfState(String headOfState) {
-		this.headOfState = headOfState;
-	}
+    public String getHeadOfState() {
+        return headOfState;
+    }
 
-	public int getCapital() {
-		return capital;
-	}
+    public void setHeadOfState(String headOfState) {
+        this.headOfState = headOfState;
+    }
 
-	public void setCapital(int capital) {
-		this.capital = capital;
-	}
+    public int getCapital() {
+        return capital;
+    }
 
-	public String getTimeZone() {
-		return timeZone;
-	}
+    public void setCapital(int capital) {
+        this.capital = capital;
+    }
 
-	public void setTimeZone(String timeZone) {
-		this.timeZone = timeZone;
-	}
+    public String getTimeZone() {
+        return timeZone;
+    }
 
-	public int getLanguageId() {
-		return languageId;
-	}
+    public void setTimeZone(String timeZone) {
+        this.timeZone = timeZone;
+    }
 
-	public void setLanguageId(int languageId) {
-		this.languageId = languageId;
-	}
+    public int getLanguageId() {
+        return languageId;
+    }
 
-	public int getCurrencyId() {
-		return currencyId;
-	}
+    public void setLanguageId(int languageId) {
+        this.languageId = languageId;
+    }
 
-	public void setCurrencyId(int currencyId) {
-		this.currencyId = currencyId;
-	}
+    public int getCurrencyId() {
+        return currencyId;
+    }
 
-	public Date getDateModified() {
-		return dateModified;
-	}
+    public void setCurrencyId(int currencyId) {
+        this.currencyId = currencyId;
+    }
 
-	public void setDateModified(Date dateModified) {
-		this.dateModified = dateModified;
-	}
+    public Date getDateModified() {
+        return dateModified;
+    }
 
-	public Date getDateCreated() {
-		return dateCreated;
-	}
+    public void setDateModified(Date dateModified) {
+        this.dateModified = dateModified;
+    }
 
-	public void setDateCreated(Date dateCreated) {
-		this.dateCreated = dateCreated;
-	}
+    public Date getDateCreated() {
+        return dateCreated;
+    }
 
-	public List<City> getCities() {
-		return cities;
-	}
+    public void setDateCreated(Date dateCreated) {
+        this.dateCreated = dateCreated;
+    }
 
-	public void setCities(List<City> cities) {
-		this.cities = cities;
-	}
+    public List<City> getCities() {
+        return cities;
+    }
+
+    public void setCities(List<City> cities) {
+        this.cities = cities;
+    }
 }

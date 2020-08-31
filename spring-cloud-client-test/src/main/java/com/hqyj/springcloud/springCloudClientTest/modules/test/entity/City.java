@@ -7,91 +7,91 @@ import org.springframework.format.annotation.DateTimeFormat;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 public class City {
-	private int cityId;
-	private String cityName;
-	private String localCityName;
-	private int countryId;
-	private String district;
-	private int population;
-	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
-	@DateTimeFormat(pattern="yyyy-MM-dd")
-	private Date dateModified;
-	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
-	@DateTimeFormat(pattern="yyyy-MM-dd")
-	private Date dateCreated;
-	
-	private Country country;
+    private int cityId;
+    private String cityName;
+    private String localCityName;
+    private int countryId;
+    private String district;
+    private int population;
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private Date dateModified;
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private Date dateCreated;
 
-	public int getCityId() {
-		return cityId;
-	}
+    private Country country;
 
-	public void setCityId(int cityId) {
-		this.cityId = cityId;
-	}
+    public int getCityId() {
+        return cityId;
+    }
 
-	public String getCityName() {
-		return cityName;
-	}
+    public void setCityId(int cityId) {
+        this.cityId = cityId;
+    }
 
-	public void setCityName(String cityName) {
-		this.cityName = cityName;
-	}
+    public String getCityName() {
+        return cityName;
+    }
 
-	public String getLocalCityName() {
-		return localCityName;
-	}
+    public void setCityName(String cityName) {
+        this.cityName = cityName;
+    }
 
-	public void setLocalCityName(String localCityName) {
-		this.localCityName = localCityName;
-	}
+    public String getLocalCityName() {
+        return localCityName;
+    }
 
-	public int getCountryId() {
-		return countryId;
-	}
+    public void setLocalCityName(String localCityName) {
+        this.localCityName = localCityName;
+    }
 
-	public void setCountryId(int countryId) {
-		this.countryId = countryId;
-	}
+    public int getCountryId() {
+        return countryId;
+    }
 
-	public String getDistrict() {
-		return district;
-	}
+    public void setCountryId(int countryId) {
+        this.countryId = countryId;
+    }
 
-	public void setDistrict(String district) {
-		this.district = district;
-	}
+    public String getDistrict() {
+        return district;
+    }
 
-	public int getPopulation() {
-		return population;
-	}
+    public void setDistrict(String district) {
+        this.district = district;
+    }
 
-	public void setPopulation(int population) {
-		this.population = population;
-	}
+    public int getPopulation() {
+        return population;
+    }
 
-	public Date getDateModified() {
-		return dateModified;
-	}
+    public void setPopulation(int population) {
+        this.population = population;
+    }
 
-	public void setDateModified(Date dateModified) {
-		this.dateModified = dateModified;
-	}
+    public Date getDateModified() {
+        return dateModified;
+    }
 
-	public Date getDateCreated() {
-		return dateCreated;
-	}
+    public void setDateModified(Date dateModified) {
+        this.dateModified = dateModified;
+    }
 
-	public void setDateCreated(Date dateCreated) {
-		this.dateCreated = dateCreated;
-	}
+    public Date getDateCreated() {
+        return dateCreated;
+    }
 
-	public Country getCountry() {
-		return country;
-	}
+    public void setDateCreated(Date dateCreated) {
+        this.dateCreated = dateCreated;
+    }
 
-	public void setCountry(Country country) {
-		this.country = country;
-	}
+    public Country getCountry() {
+        return country;
+    }
+
+    public void setCountry(Country country) {
+        this.country = country;
+    }
 
 }

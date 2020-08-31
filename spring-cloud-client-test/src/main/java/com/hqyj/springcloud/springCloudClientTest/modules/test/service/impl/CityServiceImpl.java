@@ -30,7 +30,7 @@ public class CityServiceImpl implements CityService {
     @Override
     public PageInfo<City> getCitiesBySearchVo(int countryId, SearchVo searchVo) {
         searchVo.initSearchVo();
-        PageHelper.startPage(searchVo.getCurrentPage(),searchVo.getPageSize());
+        PageHelper.startPage(searchVo.getCurrentPage(), searchVo.getPageSize());
         return new PageInfo<City>(Optional.ofNullable(cityDao.getCitiesByCountryId(countryId))
                 .orElse(Collections.emptyList()));
     }
@@ -38,7 +38,7 @@ public class CityServiceImpl implements CityService {
     @Override
     public PageInfo<City> getCitiesBySearchVo(SearchVo searchVo) {
         searchVo.initSearchVo();
-        PageHelper.startPage(searchVo.getCurrentPage(),searchVo.getPageSize());
+        PageHelper.startPage(searchVo.getCurrentPage(), searchVo.getPageSize());
         return new PageInfo<City>(Optional.ofNullable(cityDao.getCitiesBySearchVo(searchVo))
                 .orElse(Collections.emptyList()));
     }
@@ -49,7 +49,7 @@ public class CityServiceImpl implements CityService {
         city.setDateCreated(new Date());
         cityDao.insertCity(city);
         return new Result<City>(Result.ResultStatus.SUCCESS.status,
-                "Insert success.",city);
+                "Insert success.", city);
     }
 
     @Override
@@ -57,7 +57,7 @@ public class CityServiceImpl implements CityService {
     public Result<City> updateCity(City city) {
         cityDao.updateCity(city);
         return new Result<City>(Result.ResultStatus.SUCCESS.status,
-                "Update success",city);
+                "Update success", city);
     }
 
     @Override

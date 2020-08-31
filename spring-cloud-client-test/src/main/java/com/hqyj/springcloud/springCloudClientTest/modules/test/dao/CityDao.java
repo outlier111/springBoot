@@ -35,7 +35,7 @@ public interface CityDao {
 
     @Insert("insert into m_city (city_name,local_city_name,country_id,date_created)" +
             "value (#{cityName},#{localCityName},#{countryId},#{dateCreated})")
-    @Options(useGeneratedKeys = true, keyColumn = "city_id",keyProperty = "cityId")
+    @Options(useGeneratedKeys = true, keyColumn = "city_id", keyProperty = "cityId")
     void insertCity(City city);
 
     @Update("update m_city set city_name = #{cityName} where city_id = #{cityId}")
