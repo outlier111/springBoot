@@ -1,26 +1,21 @@
 package com.hqyj.springcloud.springCloudClientAccount.modules.account.service.impl;
 
-import com.github.pagehelper.PageHelper;
-
 import com.github.pagehelper.PageInfo;
 import com.hqyj.springcloud.springCloudClientAccount.modules.account.dao.UserDao;
 import com.hqyj.springcloud.springCloudClientAccount.modules.account.entity.City;
 import com.hqyj.springcloud.springCloudClientAccount.modules.account.entity.User;
+import com.hqyj.springcloud.springCloudClientAccount.modules.account.service.TestFeignClient;
 import com.hqyj.springcloud.springCloudClientAccount.modules.account.service.UserService;
 import com.hqyj.springcloud.springCloudClientAccount.modules.vo.Result;
 import com.hqyj.springcloud.springCloudClientAccount.modules.vo.SearchVo;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.io.File;
-import java.io.IOException;
-import java.time.LocalDateTime;
-import java.util.Collections;
+
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -28,6 +23,8 @@ public class UserServiceImpl implements UserService {
     private UserDao userDao;
     @Autowired
     private RestTemplate restTemplate;
+    @Autowired
+    private TestFeignClient testFeignClient;
 
     @Override
     public Result<User> insertUser(User user) {
@@ -55,13 +52,10 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    @HystrixCommand(fallbackMethod = "getUserByUserIdFallback")
     public User getUserByUserId(int userId) {
         User user = userDao.getUserByUserId(userId);
-        List<City> cities = Optional.ofNullable(
-                restTemplate.getForObject(
-                "http://CLIENT-TEST/api/cities/{countryId}",
-                List.class,522))
-                .orElse(Collections.emptyList());
+       List<City> cities = testFeignClient.getCityByCountryId(522);
         user.setCities(cities);
         return user;
     }

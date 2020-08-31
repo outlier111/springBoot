@@ -47,8 +47,8 @@ public class Result<T> {
     /**
      *
      */
-    public enum ResultStatus{
-        SUCCESS(200),FAILD(500);
+    public enum ResultStatus {
+        SUCCESS(200), FAILD(500);
         public int status;
 
         ResultStatus(int status) {
@@ -63,10 +63,10 @@ public class Result<T> {
     private final static int SMALL_IMAGE_WIDTH = 100;
     private final static int SMALL_IMAGE_HEIGHT = 100;
 
-    public enum IMAGE{
-        BIG_IMAGE(1000,1000,100),
-        MIDDLE_IMAGE(500,500,50),
-        SMALL_IMAGE(100,100,20);
+    public enum IMAGE {
+        BIG_IMAGE(1000, 1000, 100),
+        MIDDLE_IMAGE(500, 500, 50),
+        SMALL_IMAGE(100, 100, 20);
         public int width;
         public int height;
         public int size;
