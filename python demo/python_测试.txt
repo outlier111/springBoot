@@ -1,0 +1,122 @@
+一，选择题
+	以下哪个不是python解释器（D）
+		CPython
+		IPython
+		Jython
+		py
+	下列哪个表达式在Python中是非法的？(B)
+		x = y = z = 1
+		x = (y = z + 1)
+		x, y = y, x
+		x += y
+	print("%d %% %d"%(3, 5)) 输出结果是？（A）
+		3 % 5
+		3 %% 5
+		2
+		1
+	“今年第一季度GDP提高了x%”，x为float值，格式化字符串，x保留两位小数，下面哪个是正确的？(C)
+		print("今年第一季度GDP提高了%.2f"%(22.234,))
+		print("今年第一季度GDP提高了%.2f%"%(22.234,))
+		print("今年第一季度GDP提高了%.2f%%"%(22.234,))
+		print("今年第一季度GDP提高了{0}%".format(22.234))
+	l = ["cdsa", 32, 33.2, None, True];l.pop();print(l);打印结果是：(D)
+		["cdsa", 32, 33.2, True]
+		["cdsa", 32, None, True]
+		["cdsa", 32, 33.2, None]
+		[32, 33.2, None, True]
+	print(15 // 2);  (B)
+		1
+		7
+		7.5
+		8
+	下面哪个不是 python 的数据类型(D)
+		int
+		str
+		set
+		double
+	*args 代表什么参数(B)
+		位置参数
+		可变参数
+		可变关键字参数
+		命名关键字参数
+	函数多个返回值，实际上返回的是什么数据类型？(A)
+		list
+		set
+		tuple
+		dict
+	安装Django2.0.7版本，使用的什么命令？(C)
+		pip install django
+		pip install django=2.0.7
+		pip install django==2.0.7
+		pip install django version=2.0.7
+
+二、填空题
+	字符串前面添加u、r、b分别代表什么？
+	答：u后面的字符串以Unicode格式进行编码，一般用在中文字符串前面
+	       r后面字符串是普通字符串
+	       b后面的字符串是bytes类型
+
+	requests模块请求远程服务器，如何设置相应编码？
+	答：r.encoding = r.apparent_encoding;
+
+	windows下执行python的方式；
+	答：python manage.py runserver 0.0.0.0:8080
+
+	创建python package，会自动生成什么文件？
+	python变量作用域有哪些？
+	答： L    (Local)         ---- 局部作用域
+	       E   (Enclosing)    ---- 闭包函数外的函数中
+	       G （Global）      ---- 全局作用域
+	       B （Built-in）     ---- 内建作用域
+
+三、问答题
+	python命名规则？
+	答：总规则：英文字母、数字和下划线，不能以数字开头，扩展名 .py；
+	      模块：全小写，多个单词下划线分隔；
+	      类名：小写，多个单词下划线分隔，也可和 Java 一致保持驼峰法，私有类以下划线开头；
+	      函数名：全小写，私有函数以下划线开始；
+	      变量名：全小写，多个单词采用下划线间隔，或者驼峰法；
+	      常量：全大写，多个单词采用下划线间隔；
+	      注解
+		单行注解：# hello world
+		多行注解：连续的三引号（单引号或双引号）；
+
+	set删除操作中，pop、remove的区别？
+	答：remove ( ) 方法是直接对可变序中的元素进行检索删除，返回的是删除后的列表,不返回删除值（返回None）
+	       pop ( ) 方法是对可变序列中元素下标进行检索删除，返回删除值
+
+	list使用+=和append函数的区别？
+	答：+=是两个对象相加，返回一个新的list对象
+	       append是将一个对象加到list集合中，还是当前的对象，只是添加了元素
+
+	使用bs4解析响应内容，获取某div（class为aaa）下所有span节点；
+	答：  bs = BeautifulSoup(r.text, "html.parser")
+	        span_list = bs.find_all(name="div", attrs={"class": "aaa"}).find_all(name='span')
+
+	简述Django操作流程、组件的作用；
+	答：1.用户通过浏览器请求页面
+	      2.拿到用户的url会通过urls.py文件进行匹配，找到相应的View（视图）
+	      3.调用View中的函数
+	      4. View中的方法可以通过Models访问数据库数据，并将数据返回给View
+	      5.如果需要views可以使用Context，context被传递给Template（模板）来生成html页面
+	      6.返回响应对象到浏览器，给用户呈现效果
+	管理工具（Management）：一套内置的创建站点、迁移数据、维护静态文件的命令工具；
+	模型（Model）：提供数据访问接口和模块，包括数据字段、元数据、数据关系等的定义及操作；
+	视图（View）：Django 的视图层封装了 HTTP Request 和 Response 的一系列操作和数据流，其主要功能包括 URL 映射机制、绑定模板等；
+	模板（Template）：是一套 Django 自己的页面渲染模板语言，用若干内置的 tags 和 filters 定义页面的生成方式；
+	表单（Form）：通过内置的数据类型和控件生成 HTML 表单；
+	管理站（Admin）：通过声明需要管理的 Model，快速生成后台数据管理网站；
+
+
+四、编程题
+	定义一个函数，接受 0 个或多个参数，返回累计乘积；
+	答：def temp(*num):
+		n = 0
+		for i in num:
+		         n = n * i
+		return n
+
+	定义一个函数，去掉字符串前后的空格；
+	答：def test(x):
+		str = x.strip()
+	       return str
